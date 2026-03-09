@@ -3,25 +3,19 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 
-export default defineConfig(({ mode }) => {
-  const plugins = [react()];           // always include React plugin
-  if (mode === "development") {
-    plugins.push(componentTagger());   // add dev-only plugin
-  }
-
-  return {
-    server: {
-      host: "::",
-      port: 8080,
-      hmr: {
-        overlay: false,
-      },
+// Always export a proper plugins array
+export default defineConfig({
+  server: {
+    host: "::",
+    port: 8080,
+    hmr: {
+      overlay: false,
     },
-    plugins,                           // always a proper array
-    resolve: {
-      alias: {
-        "@": path.resolve(__dirname, "./src"),
-      },
+  },
+  plugins: [react(), componentTagger()], // <-- static array, no conditionals
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
     },
-  };
+  },
 });
