@@ -1253,13 +1253,17 @@ function toggleSidebar() {
   }
 }
 
-// Use both click and touchend for reliable mobile support inside iframes
+// Debounce toggle to prevent double-firing from touch + click
 const sidebarToggleBtn = document.getElementById("sidebar-toggle");
 const sidebarOverlayEl = document.getElementById("sidebar-overlay");
+let lastToggleTime = 0;
 
 function handleSidebarToggle(e) {
   e.preventDefault();
   e.stopPropagation();
+  const now = Date.now();
+  if (now - lastToggleTime < 300) return; // ignore duplicate fires
+  lastToggleTime = now;
   toggleSidebar();
 }
 
