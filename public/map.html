@@ -1253,8 +1253,20 @@ function toggleSidebar() {
   }
 }
 
-document.getElementById("sidebar-toggle").addEventListener("click", toggleSidebar);
-document.getElementById("sidebar-overlay").addEventListener("click", toggleSidebar);
+// Use both click and touchend for reliable mobile support inside iframes
+const sidebarToggleBtn = document.getElementById("sidebar-toggle");
+const sidebarOverlayEl = document.getElementById("sidebar-overlay");
+
+function handleSidebarToggle(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  toggleSidebar();
+}
+
+sidebarToggleBtn.addEventListener("click", handleSidebarToggle);
+sidebarToggleBtn.addEventListener("touchend", handleSidebarToggle, { passive: false });
+sidebarOverlayEl.addEventListener("click", handleSidebarToggle);
+sidebarOverlayEl.addEventListener("touchend", handleSidebarToggle, { passive: false });
 
 // ── Legend Toggle ────────────────────────────────────────────────────────────
 let legendOpen = false;
