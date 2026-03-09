@@ -3,6 +3,8 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 
+import { cloudflare } from "@cloudflare/vite-plugin";
+
 // Always export a proper plugins array
 export default defineConfig({
   server: {
@@ -12,7 +14,7 @@ export default defineConfig({
       overlay: false,
     },
   },
-  plugins: [react(), componentTagger()], // <-- static array, no conditionals
+  plugins: [react(), componentTagger(), cloudflare()], // <-- static array, no conditionals
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
