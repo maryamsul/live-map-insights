@@ -1435,6 +1435,13 @@ function startAutoRefresh() {
 }
 
 // ── Boot ──────────────────────────────────────────────────────────────────────
+// ── Reset sidebar state on resize to prevent stale state ─────────────────────
+window.addEventListener("resize", function() {
+  if (window.innerWidth > 768 && sidebarOpen) {
+    setSidebar(false);
+  }
+});
+
 window.addEventListener("load", () => {
   initMap();
   fetchAttacks();
