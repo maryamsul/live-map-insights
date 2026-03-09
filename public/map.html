@@ -819,12 +819,13 @@
       }
 
       #sidebar {
-        position: fixed;
+        position: absolute;
         top: 48px;
         right: 0;
+        bottom: 0;
         width: 85%;
         max-width: 320px;
-        height: calc(100vh - 48px);
+        z-index: 500;
         transform: translateX(100%);
         box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
       }
