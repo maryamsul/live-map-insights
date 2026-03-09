@@ -54,6 +54,7 @@
       grid-template-rows: 48px 1fr;
       height: 100vh;
       width: 100vw;
+      position: relative;
     }
 
     /* ── Top Bar ── */
@@ -357,10 +358,13 @@
     /* ── Sidebar Overlay (Mobile) ── */
     #sidebar-overlay {
       display: none;
-      position: fixed;
-      inset: 0;
+      position: absolute;
+      top: 48px;
+      left: 0;
+      right: 0;
+      bottom: 0;
       background: rgba(0, 0, 0, 0.5);
-      z-index: 90;
+      z-index: 400;
       opacity: 0;
       transition: opacity 0.3s;
     }
@@ -818,12 +822,13 @@
       }
 
       #sidebar {
-        position: fixed;
+        position: absolute;
         top: 48px;
         right: 0;
+        bottom: 0;
         width: 85%;
         max-width: 320px;
-        height: calc(100vh - 48px);
+        z-index: 500;
         transform: translateX(100%);
         box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
       }
