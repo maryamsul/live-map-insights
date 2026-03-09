@@ -1232,8 +1232,8 @@ function updateStats(attacks) {
 }
 
 // ── Sidebar Toggle ───────────────────────────────────────────────────────────
-function toggleSidebar() {
-  sidebarOpen = !sidebarOpen;
+function setSidebar(open) {
+  sidebarOpen = open;
   const sidebar = document.getElementById("sidebar");
   const toggleBtn = document.getElementById("sidebar-toggle");
   const overlay = document.getElementById("sidebar-overlay");
@@ -1242,35 +1242,31 @@ function toggleSidebar() {
     sidebar.classList.add("open");
     toggleBtn.classList.add("open");
     overlay.classList.add("visible");
-    toggleBtn.innerHTML = "✕";
+    toggleBtn.textContent = "✕";
     toggleBtn.title = "إخفاء القرى";
   } else {
     sidebar.classList.remove("open");
     toggleBtn.classList.remove("open");
     overlay.classList.remove("visible");
-    toggleBtn.innerHTML = "☰";
+    toggleBtn.textContent = "☰";
     toggleBtn.title = "عرض القرى";
   }
 }
 
-// Debounce toggle to prevent double-firing from touch + click
-const sidebarToggleBtn = document.getElementById("sidebar-toggle");
-const sidebarOverlayEl = document.getElementById("sidebar-overlay");
-let lastToggleTime = 0;
-
-function handleSidebarToggle(e) {
-  e.preventDefault();
-  e.stopPropagation();
-  const now = Date.now();
-  if (now - lastToggleTime < 300) return; // ignore duplicate fires
-  lastToggleTime = now;
-  toggleSidebar();
+function toggleSidebar() {
+  setSidebar(!sidebarOpen);
 }
 
-sidebarToggleBtn.addEventListener("click", handleSidebarToggle);
-sidebarToggleBtn.addEventListener("touchend", handleSidebarToggle, { passive: false });
-sidebarOverlayEl.addEventListener("click", handleSidebarToggle);
-sidebarOverlayEl.addEventListener("touchend", handleSidebarToggle, { passive: false });
+// Single click handler — no touchend, no preventDefault, no double-fire risk
+document.getElementById("sidebar-toggle").addEventListener("click", function(e) {
+  e.stopPropagation();
+  toggleSidebar();
+});
+
+document.getElementById("sidebar-overlay").addEventListener("click", function(e) {
+  e.stopPropagation();
+  setSidebar(false);
+});
 
 // ── Legend Toggle ────────────────────────────────────────────────────────────
 let legendOpen = false;
