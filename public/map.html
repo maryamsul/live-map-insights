@@ -4,18 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>شاهد خريطة الشهادة</title>
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@300;400;600;700;900&family=Noto+Sans+Arabic:wght@300;400;600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet" />
-
-  <!-- Leaflet -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 
   <style>
-    /* ── Variables ── */
     :root {
       --black:      #f5f3ef;
       --deep:       #ffffff;
@@ -160,7 +155,6 @@
       100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
     }
 
-    /* ── Sidebar ── */
     #sidebar {
       grid-column: 1;
       grid-row: 2;
@@ -278,7 +272,6 @@
       margin-top: 1px;
     }
 
-    /* Color tiers */
     .tier-1 .badge-count { color: #ffd700; }
     .tier-1 .badge-label { color: #997f00; }
     .tier-2 .badge-count { color: #ff8c00; }
@@ -355,7 +348,6 @@
       background: #333;
     }
     
-    /* ── Sidebar Overlay (Mobile) ── */
     #sidebar-overlay {
       display: none;
       position: absolute;
@@ -426,12 +418,10 @@
       background: #f5f3ef;
     }
 
-    /* Leaflet overrides */
     .leaflet-container { background: #f5f3ef !important; }
     .leaflet-control-zoom { display: none; }
     .leaflet-control-attribution { display: none; }
 
-    /* ── Detail Panel ── */
     #detail-panel {
       position: absolute;
       top: 0;
@@ -549,7 +539,6 @@
       direction: rtl;
     }
 
-    /* Testimonies */
     #testimonies-list { margin-bottom: 16px; }
 
     .testimony-card {
@@ -643,7 +632,6 @@
       transition: transform 0.15s;
     }
 
-    /* ── Loading overlay ── */
     #loading {
       position: fixed;
       inset: 0;
@@ -711,7 +699,6 @@
 
     .leaflet-tooltip::before { display: none !important; }
 
-    /* ── Map Legend (Legacy Points Indicator) ── */
     #legend-toggle {
       position: absolute;
       bottom: 20px;
@@ -789,7 +776,6 @@
       letter-spacing: 0.5px;
     }
 
-    /* ── Empty state ── */
     #empty-state {
       position: absolute;
       top: 50%;
@@ -812,10 +798,8 @@
       letter-spacing: 2px;
     }
 
-    /* ── Scrollbar global ── */
     * { scrollbar-width: thin; scrollbar-color: var(--border2) transparent; }
 
-    /* ── Mobile Responsive ── */
     @media (max-width: 768px) {
       #app {
         grid-template-columns: 1fr;
@@ -946,26 +930,21 @@
 </head>
 <body>
 
-<!-- Loading screen -->
 <div id="loading">
   <div class="loading-title">شاهد</div>
-  <div class="loading-sub">WITNESS — Lebanon War Map</div>
+  <div class="loading-sub"> Lebanon War Map</div>
   <div class="loading-bar-wrap">
     <div class="loading-bar"></div>
   </div>
 </div>
 
-<!-- Main app -->
 <div id="app">
-
-  <!-- Top bar -->
   <header id="topbar">
     <div class="brand">
-      <!-- Sidebar Toggle Button (Mobile) - positioned before logo -->
       <button id="sidebar-toggle" type="button" title="عرض القرى">☰</button>
       <div>
         <div class="logo">شاهد</div>
-        <div class="logo-sub">SHAHED · WITNESS</div>
+        <div class="logo-sub">SHAHED </div>
       </div>
       <div class="divider"></div>
       <div class="channel-tag">@bintjbeilnews</div>
@@ -986,10 +965,7 @@
     </div>
   </header>
 
-  <!-- Sidebar Overlay (Mobile) -->
   <div id="sidebar-overlay"></div>
-
-  <!-- Sidebar -->
   <aside id="sidebar">
     <div id="sidebar-header">
       <h2>القرى او المدن الموثّقة</h2>
@@ -1003,20 +979,16 @@
     </div>
   </aside>
 
-  <!-- Map -->
   <div id="map-container">
     <div id="map"></div>
     
-    <!-- Zoom Controls -->
     <div id="zoom-controls">
       <button class="zoom-btn" id="zoom-in" title="تكبير">+</button>
       <button class="zoom-btn" id="zoom-out" title="تصغير">−</button>
     </div>
     
-    <!-- Legend Toggle Button -->
     <button id="legend-toggle" title="مفتاح الخريطة">●</button>
     
-    <!-- Legend / Legacy Points Indicator -->
     <div id="map-legend">
       <h4>مفتاح الخريطة</h4>
       <div class="legend-item">
@@ -1046,7 +1018,6 @@
       <div class="empty-text">NO DATA YET</div>
     </div>
 
-    <!-- Detail panel (slides in from left over map) -->
     <div id="detail-panel">
       <button id="detail-close">✕</button>
       <div id="detail-header">
@@ -1107,7 +1078,6 @@ function initMap() {
   ).addTo(map);
 }
 
-// ── Dot styling ──────────────────────────────────────────────────────────────
 function getDotSize(n) {
   if (n >= 50) return 30;
   if (n >= 20) return 22;
