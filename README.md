@@ -1,73 +1,42 @@
-# Welcome to your Lovable project
+# Live Map Insights 🌍
 
-## Project info
+A real-time geospatial visualization dashboard that transforms raw location-based data into interactive map insights.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 🚀 Overview
 
-## How can I edit this code?
+Live Map Insights is a frontend system built to visualize and explore geographic data on an interactive map. It is designed to demonstrate how scattered or event-based data can be represented spatially for better understanding and decision-making.
 
-There are several ways of editing your application.
+## 🧠 Key Features
 
-**Use Lovable**
+* Interactive map-based visualization of location data
+* Real-time UI updates for dynamic insights
+* Clean and responsive frontend built with modern UI components
+* Modular structure for integrating external APIs or data sources
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## 🛠️ Tech Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+* Vite
+* React
+* TypeScript
+* Tailwind CSS
+* shadcn/ui
+* Cloudflare Workers (deployment configuration)
 
-**Use your preferred IDE**
+## 🎯 Purpose
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+This project was built as a prototype to explore geospatial visualization concepts and frontend system design for data-driven applications such as civic monitoring, infrastructure tracking, or event mapping.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## ⚙️ Architecture (Frontend-focused)
 
-Follow these steps:
+* UI Layer: React components for map rendering and interaction
+* State Management: Local component/state handling
+* Data Layer: Designed to support external API or real-time data integration
+* Deployment: Cloudflare Workers ready configuration
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 📌 Status
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Prototype / Hackathon-stage project. Can be extended into a full real-time data platform with backend integration.
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 👤 Author
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Built by a Computer Science student focused on backend systems, data-driven applications, and AI-powered infrastructure tools.
