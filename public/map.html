@@ -1049,9 +1049,7 @@
 
 <script>
 // ── CONFIG — replace with your actual backend URL ────────────────────────────
-const API_BASE = "https://web-production-f216.up.railway.app";
-// When deployed: const API_BASE = "https://your-railway-url.up.railway.app";
-
+const API_BASE = import.meta.env.VITE_API_URL;
 // ── State ────────────────────────────────────────────────────────────────────
 let allAttacks       = [];
 let markers          = {};
