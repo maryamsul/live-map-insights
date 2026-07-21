@@ -1048,16 +1048,14 @@
 </div>
 
 <script>
-// ── CONFIG — replace with your actual backend URL ────────────────────────────
 const API_BASE = "api.shahedlebanon.com";
-// ── State ────────────────────────────────────────────────────────────────────
+
 let allAttacks       = [];
 let markers          = {};
 let activeVillage    = null;
 let map              = null;
 let sidebarOpen      = false;
 
-// ── Map Init ─────────────────────────────────────────────────────────────────
 function initMap() {
   map = L.map("map", {
     center: [33.85, 35.9],
