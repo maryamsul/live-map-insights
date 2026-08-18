@@ -1301,7 +1301,7 @@ function loadTestimonies(village_ar) {
     .then(data => {
       list.innerHTML = "";
       if (!data.length) {
-        list.innerHTML = `<div class="no-testimonies">لا توجد شهادات بعد — كن أول من يشهد</div>`;
+        list.innerHTML = `<div class="no-testimonies">لا توجد شهادات بعد كن أول من يشهد</div>`;
         return;
       }
       data.forEach(t => {
