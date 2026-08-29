@@ -1,7 +1,7 @@
 # Live Map Insights 🌍
 
 A lightweight, responsive geospatial visualization frontend for exploring location-based events across Lebanon through an interactive map.
-
+![Map](src/map1.png)
 ## 🚀 Overview
 
 **Live Map Insights** is a frontend-focused web application designed to transform structured location-based data into an interactive geographic experience.
